@@ -75,5 +75,8 @@ virtual int GetPowerModifier(APlayerPawn * PlayerPawn) override
 	return 1;
 }
 ```
+## Other examples
+- Unreal Engine actually has documentation of this (mentioned in the TTypeContainer write up) under a cpp file. [It can be found here](https://github.com/EpicGames/UnrealEngine/blob/7d9919ac7bfd80b7483012eab342cb427d60e8c9/Engine/Source/Runtime/Core/Private/Tests/Misc/TypeContainerTest.cpp).
+
 *author: jimmyt1988*
 *23/05/2019*
