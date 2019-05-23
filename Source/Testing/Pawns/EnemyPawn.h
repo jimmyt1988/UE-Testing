@@ -2,6 +2,7 @@
 
 #pragma once
 
+#include "Common.h"
 #include "CoreMinimal.h"
 #include "Runtime/Engine/Classes/Components/CapsuleComponent.h"
 #include "EnemyPawn.generated.h"

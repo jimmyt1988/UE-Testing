@@ -1,5 +1,2 @@
-#pragma once
-
 #include "IPlayerService.h"
-
-Expose_TNameOf(IPlayerService)
+#include "Runtime/Core/Public/Templates/UnrealTypeTraits.h"

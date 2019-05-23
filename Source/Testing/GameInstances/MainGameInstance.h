@@ -2,9 +2,9 @@
 
 #pragma once
 
+#include "Common.h"
 #include "CoreMinimal.h"
 #include "Engine/GameInstance.h"
-#include "Runtime/Core/Public/Misc/TypeContainer.h"
 #include "MainGameInstance.generated.h"
 
 /**
@@ -18,7 +18,5 @@ class TESTING_API UMainGameInstance : public UGameInstance
 public:
 
 	UMainGameInstance();
-
-	TTypeContainer<> Container;
 
 };

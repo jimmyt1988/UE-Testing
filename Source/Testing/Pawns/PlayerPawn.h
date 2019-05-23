@@ -2,6 +2,7 @@
 
 #pragma once
 
+#include "Common.h"
 #include "CoreMinimal.h"
 #include "GameFramework/Pawn.h"
 #include "Runtime/Core/Public/Templates/SharedPointer.h"
@@ -46,6 +47,6 @@ public:
 
 private:
 
-	TSharedPtr<IPlayerService> PlayerService;
+	TSharedPtr<struct IPlayerService> PlayerService;
 
 };

@@ -12,15 +12,14 @@ APlayerPawn::APlayerPawn()
 	PrimaryActorTick.bCanEverTick = true;
 
 	CollisionComponent = CreateDefaultSubobject<UCapsuleComponent>(FName("APlayerPawn_CollisionComponent"));
+
+	PlayerService = UIOC::Container.GetInstance<IPlayerService>();
 }
 
 // Called when the game starts or when spawned
 void APlayerPawn::BeginPlay()
 {
 	Super::BeginPlay();
-
-	UMainGameInstance* MainGameInstance = Cast<UMainGameInstance>(GetGameInstance());
-	PlayerService = MainGameInstance->Container.GetInstance<IPlayerService>();
 }
 
 void APlayerPawn::PostInitializeComponents()
