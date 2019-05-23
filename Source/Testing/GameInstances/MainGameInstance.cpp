@@ -7,5 +7,10 @@
 
 UMainGameInstance::UMainGameInstance()
 {
-	UIOC::Container.RegisterClass<IPlayerService, PlayerService>(ETypeContainerScope::Process);
+	SetUpIOCRegistrations();
+}
+
+void UMainGameInstance::SetUpIOCRegistrations()
+{
+	UIOC::Container.RegisterClass<IPlayerService, PlayerService>();
 }

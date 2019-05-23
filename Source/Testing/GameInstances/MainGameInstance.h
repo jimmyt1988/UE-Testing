@@ -8,7 +8,7 @@
 #include "MainGameInstance.generated.h"
 
 /**
- * 
+ * MainGameInstance
  */
 UCLASS()
 class TESTING_API UMainGameInstance : public UGameInstance
@@ -17,6 +17,12 @@ class TESTING_API UMainGameInstance : public UGameInstance
 	
 public:
 
+	// 
 	UMainGameInstance();
+
+private:
+
+	// Registers IOC dependencies
+	void SetUpIOCRegistrations();
 
 };

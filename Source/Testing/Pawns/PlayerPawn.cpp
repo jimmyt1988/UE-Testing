@@ -13,19 +13,15 @@ APlayerPawn::APlayerPawn()
 
 	CollisionComponent = CreateDefaultSubobject<UCapsuleComponent>(FName("APlayerPawn_CollisionComponent"));
 
+	// Fetch PlayerService from IOC container
 	PlayerService = UIOC::Container.GetInstance<IPlayerService>();
-}
-
-// Called when the game starts or when spawned
-void APlayerPawn::BeginPlay()
-{
-	Super::BeginPlay();
 }
 
 void APlayerPawn::PostInitializeComponents()
 {
 	Super::PostInitializeComponents();
 
+	// Set up collision component actions
 	if (CollisionComponent)
 	{
 		CollisionComponent->OnComponentHit.AddUniqueDynamic(this, &APlayerPawn::TriggerVolumeHitOccured);
@@ -34,16 +30,20 @@ void APlayerPawn::PostInitializeComponents()
 
 void APlayerPawn::TriggerVolumeHitOccured(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComponent, FVector NormalImpulse, const FHitResult& Hit)
 {
+	// If hit component is an enemy pawn
 	if (OtherActor->IsA(AEnemyPawn::StaticClass()))
 	{
+		// Cast the actor we interacted with, to an enemy pawn
 		AEnemyPawn* EnemyPawn = Cast<AEnemyPawn>(OtherActor);
 
-		// 
+		// Get the power modifier for player
 		int powerModifier = PlayerService->GetPowerModifier(this);
 
-		// Should be in service, but for brevity:
+		// For example purposes, does a simple bit of logic to demonstrate test
+		// Note: Should be in service, but for brevity:
 		if (powerModifier >= EnemyPawn->Power)
 		{
+			// Issue damage to enemy
 			EnemyPawn->TakeHit();
 		}
 	}
