@@ -36,7 +36,7 @@ UIOC::Container.RegisterClass<IPlayerService, PlayerService>();
 // Fetch PlayerService from IOC container
 PlayerService = UIOC::Container.GetInstance<IPlayerService>();
 ```
-- Then inside the actual `APlayerPawn` method `TriggerVolumeHitOccured`, we can call the `PlayerService` property which will now resolve the implementation which we registered in the `UMainGameInstance` constructor.
+- Then inside the actual `APlayerPawn` method `TriggerVolumeHitOccured`, we can call the `PlayerService` property which will use the implementation which we registered in the `UMainGameInstance` constructor and resolved in the pawn's constructor.
 ```cpp
 // Get the power modifier for player
 int powerModifier = PlayerService->GetPowerModifier(this);
